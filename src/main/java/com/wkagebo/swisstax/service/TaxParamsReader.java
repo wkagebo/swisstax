@@ -16,9 +16,8 @@ public class TaxParamsReader {
             properties.load(fileInputStream);
             return Integer.parseInt(properties.getProperty("grossIncome"));
         } catch (IOException e ) {
-            System.err.println("Failed to read properties file: " + e.getMessage());
+            throw new RuntimeException("Failed to read properties file: " + e.getMessage());
         }
-        return 0;
     }
 
 }
