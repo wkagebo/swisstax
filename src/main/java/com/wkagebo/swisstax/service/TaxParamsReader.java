@@ -18,6 +18,7 @@ public class TaxParamsReader {
         try (FileInputStream fileInputStream = new FileInputStream(filePath)) {
             properties.load(fileInputStream);
             int grossIncome = Integer.parseInt(properties.getProperty("grossIncome"));
+            int age = Integer.parseInt(properties.getProperty("age"));
             int taxYear = Integer.parseInt(properties.getProperty("taxYear"));
             String municipality = properties.getProperty("municipality");
             MaritalStatus maritalStatus = MaritalStatus.valueOf(properties.getProperty("maritalStatus"));
@@ -27,6 +28,7 @@ public class TaxParamsReader {
 
             return new TaxParams(
                     grossIncome,
+                    age,
                     taxYear,
                     municipality,
                     maritalStatus,
